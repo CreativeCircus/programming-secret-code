@@ -1,8 +1,5 @@
 class SecretCode {
-
-	constructor(code, callback) {
-		
-		
-
+	constructor(secretCode, callback) {
+				
 	}
 }
