@@ -1,41 +1,47 @@
-'use strict';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+"use strict";
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var SecretCode = function () {
-	function SecretCode(code, callback) {
-		_classCallCheck(this, SecretCode);
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-		document.body.addEventListener('keyup', this.checkCode.bind(this));
-		this.code = code;
-		this.entered = '';
-		this.callback = callback;
-	}
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-	_createClass(SecretCode, [{
-		key: 'checkCode',
-		value: function checkCode(event) {
-			console.log(event.key);
-			this.entered += event.key;
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-			console.log('code', this.code);
-			console.log('entered', this.entered);
+var SecretCode =
+/*#__PURE__*/
+function () {
+  function SecretCode(code, callback) {
+    var _this = this;
 
-			if (this.entered.indexOf(this.code) !== -1) {
-				this.codeMatches();
-			}
-		}
-	}, {
-		key: 'codeMatches',
-		value: function codeMatches() {
-			console.log('match!');
-			this.entered = '';
-			this.callback();
-		}
-	}]);
+    _classCallCheck(this, SecretCode);
 
-	return SecretCode;
+    _defineProperty(this, "checkCode", function (event) {
+      console.log(event.key);
+      _this.entered += event.key;
+      console.log('code', _this.code);
+      console.log('entered', _this.entered);
+
+      if (_this.entered.indexOf(_this.code) !== -1) {
+        _this.codeMatches();
+      }
+    });
+
+    document.body.addEventListener('keyup', this.checkCode);
+    this.code = code;
+    this.entered = '';
+    this.callback = callback;
+  }
+
+  _createClass(SecretCode, [{
+    key: "codeMatches",
+    value: function codeMatches() {
+      console.log('match!');
+      this.entered = '';
+      this.callback();
+    }
+  }]);
+
+  return SecretCode;
 }();
 //# sourceMappingURL=secret-code.js.map

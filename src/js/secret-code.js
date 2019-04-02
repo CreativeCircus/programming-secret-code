@@ -1,13 +1,13 @@
 class SecretCode {
 	constructor(code, callback) {
-		document.body.addEventListener('keyup', this.checkCode.bind(this))
+		document.body.addEventListener('keyup', this.checkCode)
 		this.code = code;
 		this.entered = '';
 		this.callback = callback;
 	}
 
 
-	checkCode(event) {
+	checkCode = (event) => {
 		console.log(event.key)
 		this.entered += event.key
 
